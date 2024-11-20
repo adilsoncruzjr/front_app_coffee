@@ -1,0 +1,120 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d0fdd7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #64c27b;
+    padding: 10px 20px;
+    color: #fff;
+  }
+  
+  .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .account-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .cart {
+    margin-top: 20px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .cart-item-details {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .cart-item-details h3 {
+    margin: 0 0 10px;
+  }
+  
+  .cart-item-details p {
+    margin: 0;
+  }
+  
+  .cart-item-quantity {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-item-quantity input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+  }
+  
+  .cart-item-remove {
+    color: #ff0000;
+    cursor: pointer;
+  }
+  
+  .cart-total {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .cart-total h2 {
+    margin: 0;
+  }
+  
+  .checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #64c27b;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  .cart-item-remove mat-icon {
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .frete-gratis {
+    font-size: 16px;
+    color: green;
+    font-weight: bold;
+  }

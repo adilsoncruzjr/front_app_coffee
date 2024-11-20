@@ -1,0 +1,41 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #d0fdd7; /* Cor de fundo mais clara */
+}
+
+.register-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+mat-card-header {
+  margin-bottom: 20px; /* Adiciona 20px de espaço abaixo do cabeçalho */
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  background-color: #ffffff; /* Cor de fundo do card */
+}
+
+mat-card-title {
+  color: #64c27b; /* Cor verde para o título */
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;  /* Ajuste o alinhamento dos botões */
+  margin-top: 20px;
+}

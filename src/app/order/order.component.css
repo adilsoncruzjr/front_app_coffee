@@ -1,0 +1,58 @@
+/* order-status.component.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d0fdd7;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #64c27b;
+    padding: 10px 20px;
+    color: #fff;
+  }
+  
+  .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+.toolbar {
+    background-color: #64c27b;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.toolbar .back-button, .toolbar .user-icon {
+    cursor: pointer;
+}
+.toolbar .title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.order-status-list {
+    background-color: #ffffff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.order-status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #64c27b;
+}
+.order-status-item:last-child {
+    border-bottom: none;
+}
+.order-status-item .status {
+    font-weight: bold;
+    color: #64c27b;
+}

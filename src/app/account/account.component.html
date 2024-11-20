@@ -1,0 +1,40 @@
+<div class="header">
+  <div class="logo">Gourmet Coffee</div>
+  <div class="user-icon">
+    <mat-icon>person</mat-icon>
+  </div>
+</div>
+<div class="container">
+  <div class="card">
+    <h2>Identification</h2>
+    <div class="editable">
+      <label for="name">Name: </label>
+      <input type="text" id="name" [(ngModel)]="userData.name">
+    </div>
+    <div class="editable">
+      <label for="cpf">CPF: </label>
+      <input type="text" id="cpf" [(ngModel)]="userData.cpf">
+    </div>
+  </div>
+  <div class="card">
+    <h2>Contact</h2>
+    <div class="editable">
+      <label for="email">Email: </label>
+      <input type="email" id="email" [value]="userData.email" readonly>
+    </div>
+    <div class="editable">
+      <label for="phone">Phone: </label>
+      <input type="text" id="phone" [(ngModel)]="userData.contact_phone">
+    </div>
+  </div>
+  <div class="card">
+    <h2>Orders</h2>
+    <ul class="orders-list">
+      <li *ngFor="let order of userData.orders">Order ID: {{ order }}</li>
+    </ul>
+  </div>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="saveChanges()">Salvar</button>
+    <button mat-raised-button color="warn" (click)="cancelChanges()">Cancelar</button>
+  </div>
+</div>

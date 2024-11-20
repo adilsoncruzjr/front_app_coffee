@@ -1,0 +1,32 @@
+<div class="header">
+  <div class="back-icon">
+    <mat-icon>arrow_back</mat-icon>
+  </div>
+  <div class="logo">Gourmet Coffee</div>
+  <div class="user-icon">
+    <mat-icon>person</mat-icon>
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="search-bar">
+    <input placeholder="Search for coffee..." type="text" />
+    <button mat-icon-button color="primary">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="product-list">
+  <div class="product-item" *ngFor="let product of products">
+    <img [src]="product.image" [alt]="product.name_prod" height="200" width="200" />
+    <h3 (click)="goToProductDetail(product.id_prod)">{{ product.name_prod }}</h3>
+    <p>{{ product.value_prod | currency }}</p>
+  </div>
+</div>
+
+<!-- Navegação de Páginas -->
+<div class="pagination">
+  <a href="#" (click)="previousPage()" [class.disabled]="currentPage === 1">« Previous</a>
+  <a href="#" (click)="nextPage()" [class.disabled]="currentPage === totalPages">Next »</a>
+</div>
