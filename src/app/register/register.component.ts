@@ -77,4 +77,11 @@ export class RegisterComponent implements OnInit {
     console.log('Registro cancelado. Redirecionando para o login...');
     this.router.navigate(['']);
   }
+
+  redirectToLogin() {
+    // Exibe a mensagem
+    alert('Registrado com sucesso!');
+    // Redireciona para /login
+    this.router.navigate(['']);
+  }
 }

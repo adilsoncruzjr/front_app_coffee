@@ -26,7 +26,9 @@ export class CatalogComponent implements OnInit {
     this.apiService.getProducts(page, this.itemsPerPage).subscribe({
       next: (response) => {
         this.products = response.products.data; // Ajuste conforme o formato real da API
-        this.totalPages = response.products.last_page; // Total de páginas retornado pela API
+        this.totalPages = response.products.last_page; // Total de páginas
+        console.log('Produtos carregados:', this.products);  // Depuração
+        this.assignRandomImages();  // Atribui imagens aleatórias
       },
       error: (err) => {
         console.error('Erro ao carregar produtos', err);
@@ -34,25 +36,66 @@ export class CatalogComponent implements OnInit {
     });
   }
 
+   // Função para atribuir imagens aleatórias aos produtos
+   assignRandomImages(): void {
+    const imageUrls = [
+      'images/1.jpg',
+      'images/2.jpg',
+      'images/3.jpg',
+      'images/4.jpg',
+      'images/5.jpg',
+      'images/6.jpg',
+      'images/7.jpg',
+      'images/8.jpg',
+      'images/9.jpg',
+      'images/10.jpg',
+      'images/11.jpg',
+      'images/12.jpg'
+    ];
+
+    // Atribui uma imagem aleatória para cada produto
+    this.products = this.products.map(product => {
+      const randomImage = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+      return {
+        ...product,
+        image: randomImage  // A imagem aleatória é atribuída à propriedade `image` de cada produto
+      };
+    });
+
+    console.log('Produtos com imagens atribuídas:', this.products);  // Log para verificar
+  }
+
+
   // Função para ir para a próxima página
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
+      console.log(`Mudando para a próxima página: ${this.currentPage}`);
       this.loadProducts(this.currentPage);
     }
   }
-
-  // Função para voltar para a página anterior
+  
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
+      console.log(`Voltando para a página anterior: ${this.currentPage}`);
       this.loadProducts(this.currentPage);
     }
   }
 
   // Função para redirecionar para a página de detalhes do produto
-  goToProductDetail(productId: string): void {
-    this.router.navigate(['/product', productId]); // Redireciona para a rota /product com o id do produto
+  goToProductDetail(product: any): void {
+    this.router.navigate(['/product', product.id_prod], { 
+      queryParams: { image: product.image } // Passa a imagem como query param
+    });
+  }
+
+  navigateToAccount(): void {
+    this.router.navigate(['/account']);
+  }
+
+  navigateToCart(): void {
+    this.router.navigate(['/cart']);
   }
 
 }

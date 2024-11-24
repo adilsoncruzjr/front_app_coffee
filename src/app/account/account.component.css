@@ -78,3 +78,47 @@ body {
   background-color: #64c27b;
   color: #ffffff;
 }
+
+div[click] {
+  cursor: pointer; /* Muda o cursor para a mãozinha em qualquer div com (click) */
+  display: inline-flex;
+  align-items: center;
+}
+
+div[click]:hover mat-icon {
+  color: #303f9f; /* Opcional: muda a cor do ícone ao passar o mouse */
+  transition: color 0.3s ease;
+}
+
+.clickable {
+  cursor: pointer; /* Aplica o ponteiro */
+  display: inline-flex;
+  align-items: center;
+}
+
+.clickable:hover mat-icon {
+  color: #303f9f; /* Muda a cor do ícone no hover */
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-id {
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+.order-id:hover {
+  color: #007bff; /* Cor quando passar o cursor por cima */
+  text-decoration: underline; /* Adiciona um sublinhado */
+}
+
+.order-status {
+  margin: 0;
+}
+

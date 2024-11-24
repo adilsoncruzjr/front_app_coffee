@@ -38,5 +38,33 @@ export class ApiService {
   getProduct(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}products/${id}`);
   }
+
+  sendCheckoutData(payload: { id_user: number; id_prod_q: number[]; final_value_car: number }): Observable<any> {
+    return this.http.post(`${this.apiUrl}shopping-cart`, payload);
+  }
+
+  createOrder(orderData: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}orders`, orderData);
+  }
+
+  getUserOrders(userId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}user-orders/${userId}`);
+  }
+  
+  getOrderDetails(cartId: number): Observable<any> {
+    console.log(`Fazendo requisição para o carrinho de ID: ${cartId}`);
+    return this.http.get(`${this.apiUrl}shopping-cart/${cartId}/products`);
+  }
+  
+
+  logout(): Observable<any> {
+    // Obter o token do localStorage para enviar no cabeçalho de autorização
+    const token = localStorage.getItem('access_token');
+    return this.http.post(
+      `${this.apiUrl}logout`, 
+      {}, 
+      { headers: { Authorization: `Bearer ${token}` } } // Enviar o token de autenticação no cabeçalho
+    );
+  }
   
 }

@@ -1,14 +1,17 @@
 <div class="header">
-  <div class="logo">Gourmet Coffee</div>
-  <div class="user-icon">
-    <mat-icon>person</mat-icon>
+  <div class="clickable" (click)="navigateHome()">
+    <mat-icon>home</mat-icon>
   </div>
+  <div class="logo">CaféGourmet</div>
+  <button (click)="logout()" class="logout-button">
+    <mat-icon>logout</mat-icon> <!-- Ícone de logout -->
+  </button>
 </div>
 <div class="container">
   <div class="card">
-    <h2>Identification</h2>
+    <h2>Identificação</h2>
     <div class="editable">
-      <label for="name">Name: </label>
+      <label for="name">Nome: </label>
       <input type="text" id="name" [(ngModel)]="userData.name">
     </div>
     <div class="editable">
@@ -17,20 +20,27 @@
     </div>
   </div>
   <div class="card">
-    <h2>Contact</h2>
+    <h2>Contato</h2>
     <div class="editable">
       <label for="email">Email: </label>
       <input type="email" id="email" [value]="userData.email" readonly>
     </div>
     <div class="editable">
-      <label for="phone">Phone: </label>
+      <label for="phone">Celular: </label>
       <input type="text" id="phone" [(ngModel)]="userData.contact_phone">
     </div>
   </div>
   <div class="card">
     <h2>Orders</h2>
     <ul class="orders-list">
-      <li *ngFor="let order of userData.orders">Order ID: {{ order }}</li>
+      <li *ngFor="let order of userData.orders" (click)="goToOrderDetails(order.id_car)">
+        <div class="order-item">
+          <p class="order-id" (mouseover)="hoverOrderId(true)" (mouseout)="hoverOrderId(false)">
+            Order ID: {{ order.id }}
+          </p>
+          <p class="order-status">Status: {{ order.status }}</p>
+        </div>
+      </li>
     </ul>
   </div>
   <div class="buttons">

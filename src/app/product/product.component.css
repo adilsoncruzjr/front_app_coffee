@@ -126,3 +126,16 @@ body {
     align-items: center;
   }
   
+  .user-icon,
+  .back-icon {
+    cursor: pointer; /* Muda o cursor para a mãozinha */
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px; /* Opcional: adiciona espaçamento entre os ícones */
+  }
+  
+  .user-icon:hover mat-icon,
+  .back-icon:hover mat-icon {
+    color: #303f9f; /* Muda a cor do ícone no hover */
+    transition: color 0.3s ease;
+  }

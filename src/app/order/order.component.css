@@ -1,58 +1,114 @@
-/* order-status.component.css */
+/* Estilo global */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #d0fdd7;
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+/* Container principal */
+.container {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 80%;
+  max-width: 800px;
+  margin-top: 50px;
+}
+
+/* Header principal */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #64c27b;
-    padding: 10px 20px;
-    color: #fff;
-  }
-  
-  .header .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #64c27b; /* Verde Gourmet */
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Toolbar com ícones de navegação */
 .toolbar {
-    background-color: #64c27b;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+  background-color: #64c27b;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
-.toolbar .back-button, .toolbar .user-icon {
-    cursor: pointer;
-}
+
 .toolbar .title {
-    font-size: 1.5em;
-    font-weight: bold;
+  font-size: 1.5em;
+  font-weight: bold;
 }
-.order-status-list {
-    background-color: #ffffff;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+.toolbar .back-button,
+.toolbar .user-icon {
+  cursor: pointer;
 }
-.order-status-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #64c27b;
+
+/* Ícones no Header */
+.user-icon,
+.back-icon {
+  cursor: pointer; /* Muda o cursor para a mãozinha */
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px; /* Espaçamento opcional entre ícones */
 }
-.order-status-item:last-child {
-    border-bottom: none;
+
+.user-icon:hover mat-icon,
+.back-icon:hover mat-icon {
+  color: #303f9f; /* Cor azul no hover */
+  transition: color 0.3s ease;
 }
-.order-status-item .status {
-    font-weight: bold;
-    color: #64c27b;
+
+/* Lista de produtos */
+.product-list {
+  padding: 20px;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-item:last-child {
+  border-bottom: none;
+}
+
+.product-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-item .product-name {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.product-item .product-price {
+  font-weight: 700;
+}
+
+/* Card de total */
+.total-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: right;
+  font-size: 1.2em;
+  font-weight: 700;
 }

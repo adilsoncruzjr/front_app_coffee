@@ -1,34 +1,53 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #64c27b;
-    padding: 10px 20px;
-    color: #fff;
-  }
-  
-  .header .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #64c27b;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 
 .navbar {
-    width: 100%;
-    position: fixed;
-    top: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 
 .content {
-    background-color: white;
-    width: 80%;
-    max-width: 32rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    text-align: center;
+  background-color: white;
+  width: 80%;
+  max-width: 32rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
 
-    /* Margens ajustadas para centralizar o conteúdo */
-    margin-top: 15vh;   /* 15% da altura da janela */
-    margin-left: 28vw;  /* 20% da largura da janela */
+  /* Margens ajustadas para centralizar o conteúdo */
+  margin-top: 15vh;
+  /* 15% da altura da janela */
+  margin-left: 28vw;
+  /* 20% da largura da janela */
+}
+
+.user-icon,
+.back-icon {
+  cursor: pointer;
+  /* Muda o cursor para a mãozinha */
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px;
+  /* Opcional: adiciona espaçamento entre os ícones */
+}
+
+.user-icon:hover mat-icon,
+.back-icon:hover mat-icon {
+  color: #303f9f;
+  /* Muda a cor do ícone no hover */
+  transition: color 0.3s ease;
 }

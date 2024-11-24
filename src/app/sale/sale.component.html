@@ -1,17 +1,15 @@
-
 <body>
-    <div class="header">
-        <div class="back-icon">
-            <mat-icon>arrow_back</mat-icon>
-          </div>
-        <div class="logo">Gourmet Coffee</div>
-        <div class="user-icon">
-            <mat-icon>person</mat-icon>
-          </div>
-      </div>
-    <div class="content mat-elevation-z4">
-        <h1>Campra Completed Successfully</h1>
-        <p>Thank you</p>
+  <div class="header">
+    <div class="back-icon" (click)="navigateToCatalog()">
+      <mat-icon>home</mat-icon>
     </div>
+    <div class="logo">CaféGourmet</div>
+    <div class="user-icon" (click)="navigateToAccount()">
+      <mat-icon>person</mat-icon>
+    </div>
+  </div>
+  <div class="content mat-elevation-z4">
+    <h1>Obrigado por sua compra. Aproveite!</h1>
+    <p>CaféGourmet</p>
+  </div>
 </body>
-

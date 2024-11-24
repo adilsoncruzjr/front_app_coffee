@@ -1,45 +1,40 @@
 <div class="header">
-    <div class="back-icon">
-        <mat-icon>arrow_back</mat-icon>
-      </div>
-    <div class="logo">Gourmet Coffee</div>
-    <div class="user-icon">
-        <mat-icon>person</mat-icon>
-      </div>
+  <div class="back-icon" (click)="navigateToCatalog()">
+    <mat-icon>arrow_back</mat-icon>
   </div>
-  <div class="container">
-    <div class="cart">
-      <!-- Renderizar itens do carrinho dinamicamente -->
-      <div class="cart-item" *ngFor="let product of products">
-        <img
-          src="https://storage.googleapis.com/a1aa/image/k72a3GXtFezUY6xazgK28CxDt4iqprUnAXheyEf8RBTOSvlnA.jpg"
-          alt="{{ product.name_prod }}"
-          width="100"
-          height="100"
-        />
-        <div class="cart-item-details">
-          <h3>{{ product.name_prod }}</h3>
-          <p>R$ {{ product.value_prod }}</p>
-          <p>{{ product.description }}</p>
-        </div>
-        <div class="cart-item-quantity">
-          <button>-</button>
-          <input type="number" value="1" />
-          <button>+</button>
-        </div>
-        <div class="cart-item-remove" (click)="removeProduct(product.id_prod)">
-          <mat-icon>delete</mat-icon>
-        </div>
+  <div class="logo">CaféGourmet</div>
+  <div class="user-icon" (click)="navigateToAccount()">
+    <mat-icon>person</mat-icon>
+  </div>
+</div>
+<div class="container">
+  <div class="cart">
+
+    <div class="cart-item" *ngFor="let product of products">
+      <img src="https://storage.googleapis.com/a1aa/image/k72a3GXtFezUY6xazgK28CxDt4iqprUnAXheyEf8RBTOSvlnA.jpg"
+        alt="{{ product.name_prod }}" width="100" height="100" />
+      <div class="cart-item-details">
+        <h3>{{ product.name_prod }}</h3>
+        <p>R$ {{ product.value_prod }}</p>
+        <p>{{ product.description }}</p>
+      </div>
+      <div class="cart-item-quantity">
+        <button (click)="decreaseQuantity(product)">-</button>
+        <input type="number" [(ngModel)]="product.quantity" [value]="product.quantity" min="1" />
+        <button (click)="increaseQuantity(product)">+</button>
+      </div>
+
+      <div class="cart-item-remove" (click)="removeProduct(product.id_prod)">
+        <mat-icon>delete</mat-icon>
       </div>
     </div>
-  
-    <!-- Total calculado -->
-    <div class="cart-total">
-      <div class="frete-gratis">
-        <p>Frete grátis</p>
-      </div>
-      <h2>Total: R$ {{ totalPrice | number: '1.2-2' }}</h2>
-    </div>
-    <button class="checkout-btn">Proceed to Checkout</button>
   </div>
-  
+
+  <div class="cart-total">
+    <div class="frete-gratis">
+      <p>Frete grátis</p>
+    </div>
+    <h2>Total: R$ {{ totalPrice | number: '1.2-2' }}</h2>
+    <div>
+      <button class="checkout-btn" (click)="proceedToCheckout()">Proceed to Checkout</button>
+    </div>

@@ -1,73 +1,26 @@
 <div class="header">
-    <div class="back-icon">
-        <mat-icon>arrow_back</mat-icon>
-      </div>
-    <div class="logo">Gourmet Coffee</div>
-    <div class="user-icon">
-        <mat-icon>person</mat-icon>
-      </div>
+  <div class="back-icon" (click)="navigateToCatalog()">
+    <mat-icon>home</mat-icon>
   </div>
-    
-    <div class="order-status-list">
-        <div class="order-status-item">
-            <div class="order-id">Order #12345</div>
-            <div class="status">Order Received</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12346</div>
-            <div class="status">Order in Separation</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12347</div>
-            <div class="status">Order Sent</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12348</div>
-            <div class="status">Order Arriving Today</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12349</div>
-            <div class="status">Order Completed</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12350</div>
-            <div class="status">Order Received</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12351</div>
-            <div class="status">Order in Separation</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12352</div>
-            <div class="status">Order Sent</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12353</div>
-            <div class="status">Order Arriving Today</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12354</div>
-            <div class="status">Order Completed</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12355</div>
-            <div class="status">Order Received</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12356</div>
-            <div class="status">Order in Separation</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12357</div>
-            <div class="status">Order Sent</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12358</div>
-            <div class="status">Order Arriving Today</div>
-        </div>
-        <div class="order-status-item">
-            <div class="order-id">Order #12359</div>
-            <div class="status">Order Completed</div>
-        </div>
-    </div>
+  <div class="logo">CaféGourmet</div>
+  <div class="user-icon" (click)="navigateToAccount()">
+    <mat-icon>person</mat-icon>
+  </div>
+</div>
 
+<div class="container" *ngIf="products.length > 0">
+  <div class="header">
+    <h3>Detalhes da Compra</h3>
+  </div>
+
+  <div class="product-list">
+    <div class="product-item" *ngFor="let product of products">
+      <div class="product-name">{{ product.name_prod }}</div>
+      <div class="product-price">R$ {{ product.value_prod }}</div>
+    </div>
+  </div>
+
+  <div class="total-card">
+    Valor Total: R$ {{ finalValue }}
+  </div>
+</div>
