@@ -1,31 +1,40 @@
+Aplicação Web para Compra de Café
+Este repositório contém o código-fonte do frontend de uma aplicação web desenvolvida como parte de um trabalho acadêmico. O sistema simula uma loja virtual de café, permitindo aos usuários navegar pelos produtos, adicionar itens ao carrinho e simular compras.
 
-# Coffee
+A aplicação consome uma API desenvolvida em Laravel, cujo código-fonte está disponível no repositório back_app_coffee.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+🚀 Descrição Geral
+A aplicação foi desenvolvida com foco em uma interface intuitiva e responsiva, utilizando Angular com Angular Material para atender às melhores práticas de design e usabilidade. O frontend consome uma API RESTful para gerenciar os dados dos produtos, carrinho e compras.
 
-## Development server
+🛠 Tecnologias Utilizadas
+Frontend
+Angular: Framework JavaScript para desenvolvimento do frontend.
+Angular Material: Biblioteca de componentes visuais baseada no Material Design.
+Componentes utilizados:
+Barra de navegação (NavBar)
+Cartões (Cards)
+Botões e ícones
+Diálogos e tabelas dinâmicas
+HTML/CSS: Para estruturação e estilização personalizada.
+Integração com a API
+A aplicação consome uma API RESTful desenvolvida em Laravel.
+Repositório da API: back_app_coffee.
+📂 Estrutura do Projeto
+src/app/: Contém os componentes, serviços e módulos organizados por funcionalidades.
+services/: Implementa as chamadas HTTP para consumir os dados da API.
+modules/: Modularização para diferentes partes da aplicação, como catálogo de produtos e carrinho de compras.
+🌐 Funcionalidades
+Catálogo de Produtos:
+Lista dinâmica de cafés disponíveis, com nome, descrição, preço e imagem.
+Carrinho de Compras:
+Adicionar, visualizar e remover itens.
+Integração com API:
+Consumo de dados e atualização em tempo real por meio de requisições HTTP.
+Interface Responsiva:
+Design adaptado para dispositivos móveis, tablets e desktops.
+⚙️ Como Rodar o Projeto
+Pré-requisitos
+Certifique-se de ter instalados:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# front_app_coffee
-
+Node.js (v16 ou superior)
+Angular CLI
