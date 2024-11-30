@@ -43,45 +43,53 @@ export class RegisterComponent implements OnInit {
    // Função chamada ao enviar o formulário
    onRegister(): void {
     if (this.registerForm.valid) {
-      // Ajustando o objeto para enviar com a ordem e os nomes de campo corretos
       const formData = {
         name: this.registerForm.value.name,
         email: this.registerForm.value.email,
         password: this.registerForm.value.password,
-        password_confirmation: this.registerForm.value.confirmPassword, // Mudando o nome para o esperado pela API
+        password_confirmation: this.registerForm.value.confirmPassword
       };
   
-      console.log('Dados que serão enviados:', formData);  // Verifique os dados no console
+      console.log('Dados enviados ao backend:', formData);
   
       this.apiService.register(formData).subscribe({
         next: (response) => {
+          console.log('Cadastro realizado com sucesso:', response);
           this.snackBar.open('Cadastro realizado com sucesso!', 'Fechar', {
-            duration: 3000,
+            duration: 3000
           });
+  
+          // Aguarda o sucesso para redirecionar
+          this.router.navigate(['']);
         },
         error: (err) => {
-          console.error('Erro no registro:', err);  // Isso ajudará a depurar
+          console.error('Erro ao registrar usuário:', err);
           this.snackBar.open('Erro ao cadastrar. Tente novamente.', 'Fechar', {
-            duration: 3000,
+            duration: 3000
           });
         }
       });
     } else {
       this.snackBar.open('Por favor, preencha todos os campos corretamente.', 'Fechar', {
-        duration: 3000,
+        duration: 3000
       });
     }
   }
 
   onCancel(): void {
-    console.log('Registro cancelado. Redirecionando para o login...');
+    console.log('Registro cancelado. Redirecionando para a página inicial...');
+    this.registerForm.reset();  // Limpa os campos do formulário
     this.router.navigate(['']);
   }
 
   redirectToLogin() {
-    // Exibe a mensagem
+    // Exibe a mensagem de sucesso para o usuário
     alert('Registrado com sucesso!');
-    // Redireciona para /login
-    this.router.navigate(['']);
+  
+    // Aguarda 1 segundo (1000 ms) para redirecionar
+    setTimeout(() => {
+      // Redireciona para /login após o tempo de espera
+      this.router.navigate(['']);
+    }, 1000);  // Ajuste o tempo conforme necessário
   }
 }
