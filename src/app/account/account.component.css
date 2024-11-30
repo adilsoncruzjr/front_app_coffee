@@ -32,6 +32,7 @@ body {
   padding: 20px;
   margin-top: 20px;
 }
+
 .card {
   background-color: #afe7b8;
   border-radius: 8px;
@@ -39,28 +40,34 @@ body {
   margin-bottom: 20px;
   color: #519b63;
 }
+
 .card h2 {
   margin-top: 0;
 }
+
 .card .editable {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   gap: 10px;
 }
+
 .card .editable input {
   border: none;
   border-radius: 4px;
   padding: 5px;
   margin-right: 10px;
 }
+
 .card .editable i {
   cursor: pointer;
 }
+
 .orders-list {
   list-style: none;
   padding: 0;
 }
+
 .orders-list li {
   background-color: #ffffff;
   color: #000000;
@@ -68,6 +75,7 @@ body {
   border-radius: 4px;
   margin-bottom: 10px;
 }
+
 .buttons {
   display: flex;
   justify-content: flex-end;
@@ -80,24 +88,24 @@ body {
 }
 
 div[click] {
-  cursor: pointer; /* Muda o cursor para a mãozinha em qualquer div com (click) */
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
 }
 
 div[click]:hover mat-icon {
-  color: #303f9f; /* Opcional: muda a cor do ícone ao passar o mouse */
+  color: #303f9f;
   transition: color 0.3s ease;
 }
 
 .clickable {
-  cursor: pointer; /* Aplica o ponteiro */
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
 }
 
 .clickable:hover mat-icon {
-  color: #303f9f; /* Muda a cor do ícone no hover */
+  color: #303f9f;
 }
 
 .order-item {
@@ -110,15 +118,14 @@ div[click]:hover mat-icon {
 .order-id {
   margin: 0;
   cursor: pointer;
-  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+  transition: color 0.3s ease;
 }
 
 .order-id:hover {
-  color: #007bff; /* Cor quando passar o cursor por cima */
-  text-decoration: underline; /* Adiciona um sublinhado */
+  color: #007bff;
+  text-decoration: underline;
 }
 
 .order-status {
   margin: 0;
 }
-

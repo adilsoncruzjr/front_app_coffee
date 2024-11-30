@@ -121,14 +121,32 @@ body {
 
   .user-icon,
 .back-icon {
-  cursor: pointer; /* Muda o cursor para a mãozinha */
+  cursor: pointer; 
   display: inline-flex;
   align-items: center;
-  margin-right: 20px; /* Opcional: adiciona espaçamento entre os ícones */
+  margin-right: 20px; 
 }
 
 .user-icon:hover mat-icon,
 .back-icon:hover mat-icon {
-  color: #303f9f; /* Muda a cor do ícone no hover */
+  color: #303f9f; 
+  transition: color 0.3s ease;
+}
+
+.back-icon {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 20px; 
+}
+
+.back-icon .back-text {
+  margin-left: 8px; 
+  font-size: 16px; 
+  color: #ffffff; 
+}
+
+.back-icon:hover .back-text {
+  color: #303f9f; 
   transition: color 0.3s ease;
 }

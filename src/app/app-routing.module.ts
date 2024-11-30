@@ -9,11 +9,14 @@ import { ProductComponent } from './product/product.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrderComponent } from './order/order.component';
 import { SaleComponent } from './sale/sale.component';
+import { RecoverComponent } from './recover/recover.component';
 import { authGuard } from './auth.guard';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, 
   { path: 'register', component: RegisterComponent }, 
+  { path: 'recover', component: RecoverComponent },
   { path: 'account', component: AccountComponent, canActivate: [authGuard] },
   { path: 'catalog', component: CatalogComponent, canActivate: [authGuard] },
   { path: 'product/:id', component: ProductComponent, canActivate: [authGuard] },

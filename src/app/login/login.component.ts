@@ -13,12 +13,12 @@ export class LoginComponent {
   loginForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder, 
-    private apiService: ApiService, 
-    private router: Router, 
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private router: Router,
     private snackBar: MatSnackBar
   ) {
-    // Inicializando o formulário com validações
+
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -26,7 +26,7 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    // Verifica se o usuário já está logado ao carregar o componente
+
     if (localStorage.getItem('access_token')) {
       this.router.navigate(['/account']);
     }
@@ -38,17 +38,13 @@ export class LoginComponent {
         (response: any) => {
           console.log('Login bem-sucedido', response);
 
-          // Verificando se a resposta contém o token e o user_id
           if (response.access_token && response.user_id) {
-            // Salvando o token e user_id no localStorage
+
             localStorage.setItem('user_id', response.user_id);
             localStorage.setItem('access_token', response.access_token);
-
-            // Exibe uma mensagem de sucesso
             this.snackBar.open('Login bem-sucedido!', 'Fechar', { duration: 3000 });
-
-            // Redirecionando para a rota "account"
             this.router.navigate(['/account']);
+
           } else {
             this.snackBar.open('Erro ao obter dados do usuário', 'Fechar', { duration: 3000 });
           }
@@ -67,4 +63,9 @@ export class LoginComponent {
     console.log('Login cancelado. Redirecionando para o registro...');
     this.router.navigate(['/register']);
   }
+
+  onRecoverPassword(): void {
+    this.router.navigate(['/recover']);
+  }
+
 }

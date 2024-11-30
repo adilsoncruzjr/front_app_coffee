@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #d0fdd7; /* Cor de fundo mais clara */
+  background-color: #d0fdd7;
 }
 
 .register-card {
@@ -18,7 +18,7 @@
 }
 
 mat-card-header {
-  margin-bottom: 20px; /* Adiciona 20px de espaço abaixo do cabeçalho */
+  margin-bottom: 20px;
 }
 
 mat-form-field {
@@ -26,16 +26,16 @@ mat-form-field {
 }
 
 mat-card {
-  background-color: #ffffff; /* Cor de fundo do card */
+  background-color: #ffffff;
 }
 
 mat-card-title {
-  color: #64c27b; /* Cor verde para o título */
+  color: #64c27b;
   text-align: center;
 }
 
 .button-container {
   display: flex;
-  justify-content: space-between;  /* Ajuste o alinhamento dos botões */
+  justify-content: space-between;
   margin-top: 20px;
 }

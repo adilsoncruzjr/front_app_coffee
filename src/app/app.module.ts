@@ -27,6 +27,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrderComponent } from './order/order.component';
 import { SaleComponent } from './sale/sale.component';
 import { ApiService } from './api.service';
+import { RecoverComponent } from './recover/recover.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ApiService } from './api.service';
     ProductComponent,
     ShoppingCartComponent,
     OrderComponent,
-    SaleComponent
+    SaleComponent,
+    RecoverComponent
   ],
   imports: [
     BrowserModule,

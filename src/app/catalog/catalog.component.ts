@@ -9,26 +9,24 @@ import { Route, Router } from '@angular/router';
 })
 export class CatalogComponent implements OnInit {
 
-  products: any[] = []; // Lista de produtos carregados
-  currentPage: number = 1; // Página atual
-  totalPages: number = 1; // Total de páginas
-  itemsPerPage: number = 6; // Itens por página
+  products: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
+  itemsPerPage: number = 6;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
-    // Carregar produtos ao inicializar
     this.loadProducts(this.currentPage);
   }
 
-  // Função para carregar produtos
   loadProducts(page: number): void {
     this.apiService.getProducts(page, this.itemsPerPage).subscribe({
       next: (response) => {
-        this.products = response.products.data; // Ajuste conforme o formato real da API
-        this.totalPages = response.products.last_page; // Total de páginas
-        console.log('Produtos carregados:', this.products);  // Depuração
-        this.assignRandomImages();  // Atribui imagens aleatórias
+        this.products = response.products.data;
+        this.totalPages = response.products.last_page;
+        console.log('Produtos carregados:', this.products);
+        this.assignRandomImages();
       },
       error: (err) => {
         console.error('Erro ao carregar produtos', err);
@@ -36,8 +34,7 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-   // Função para atribuir imagens aleatórias aos produtos
-   assignRandomImages(): void {
+  assignRandomImages(): void {
     const imageUrls = [
       'images/1.jpg',
       'images/2.jpg',
@@ -53,20 +50,17 @@ export class CatalogComponent implements OnInit {
       'images/12.jpg'
     ];
 
-    // Atribui uma imagem aleatória para cada produto
     this.products = this.products.map(product => {
       const randomImage = imageUrls[Math.floor(Math.random() * imageUrls.length)];
       return {
         ...product,
-        image: randomImage  // A imagem aleatória é atribuída à propriedade `image` de cada produto
+        image: randomImage
       };
     });
 
-    console.log('Produtos com imagens atribuídas:', this.products);  // Log para verificar
+    console.log('Produtos com imagens atribuídas:', this.products);
   }
 
-
-  // Função para ir para a próxima página
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
@@ -74,7 +68,7 @@ export class CatalogComponent implements OnInit {
       this.loadProducts(this.currentPage);
     }
   }
-  
+
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
@@ -83,10 +77,9 @@ export class CatalogComponent implements OnInit {
     }
   }
 
-  // Função para redirecionar para a página de detalhes do produto
   goToProductDetail(product: any): void {
-    this.router.navigate(['/product', product.id_prod], { 
-      queryParams: { image: product.image } // Passa a imagem como query param
+    this.router.navigate(['/product', product.id_prod], {
+      queryParams: { image: product.image }
     });
   }
 

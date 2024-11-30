@@ -1,7 +1,9 @@
 <div class="header">
   <div class="back-icon" (click)="navigateToCatalog()">
     <mat-icon>arrow_back</mat-icon>
+    <span class="back-text">Continuar Comprando</span>
   </div>
+  
   <div class="logo">CaféGourmet</div>
   <div class="user-icon" (click)="navigateToAccount()">
     <mat-icon>person</mat-icon>
@@ -36,5 +38,5 @@
     </div>
     <h2>Total: R$ {{ totalPrice | number: '1.2-2' }}</h2>
     <div>
-      <button class="checkout-btn" (click)="proceedToCheckout()">Proceed to Checkout</button>
+      <button class="checkout-btn" (click)="proceedToCheckout()">Finalizar a Compra</button>
     </div>

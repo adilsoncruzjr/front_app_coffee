@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router'; // Certifique-se de importar o Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -10,36 +10,35 @@ import { Router } from '@angular/router'; // Certifique-se de importar o Router
 })
 export class ProductComponent implements OnInit {
 
-  product: any = {}; // Produto que será exibido
-  productId: string = ''; // Agora o ID é tratado como string
-  quantity: number = 1; // Quantidade do produto para a compra
-  
+  product: any = {};
+  productId: string = '';
+  quantity: number = 1;
+
 
   constructor(private route: ActivatedRoute,
     private apiService: ApiService,
-    private router: Router // Adicionando o Router aqui
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    // Captura o id_prod da URL
     const productId = this.route.snapshot.paramMap.get('id');
-    const image = this.route.snapshot.queryParamMap.get('image'); // Captura a imagem da query param
-  
+    const image = this.route.snapshot.queryParamMap.get('image');
+
     if (productId) {
       this.productId = productId;
-      this.loadProductDetails(this.productId, image); // Passa a imagem para ser usada após o carregamento
+      this.loadProductDetails(this.productId, image);
     } else {
       console.error('Product ID não encontrado na URL');
     }
   }
-  
+
   loadProductDetails(productId: string, image: string | null): void {
     this.apiService.getProduct(productId).subscribe({
       next: (response) => {
         if (response.product) {
-          this.product = response.product; // Carrega os detalhes do produto
+          this.product = response.product;
           if (image) {
-            this.product.image = image; // Restaura a imagem capturada do query param
+            this.product.image = image;
           }
           console.log('Produto carregado:', this.product);
         } else {
@@ -52,7 +51,7 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  // Função chamada quando o usuário clica em "Buy Now"
+
   cart(): void {
     if (this.product.stock < this.quantity) {
       alert('Quantidade solicitada acima do estoque disponível');
@@ -61,25 +60,25 @@ export class ProductComponent implements OnInit {
       alert(`Produto adicionado ao carrinho: ${this.product.name_prod}. Quantidade: ${this.quantity}`);
       console.log(`Produto comprado: ${this.product.name_prod}. Quantidade: ${this.quantity}`);
 
-      // Recupera os produtos atuais do Local Storage
+
       const savedProducts = localStorage.getItem('cartProducts');
       const products = savedProducts ? JSON.parse(savedProducts) : [];
 
-      // Verifica se o produto já está no carrinho
+
       const existingProduct = products.find((p: any) => p.id_prod === this.product.id_prod);
       if (existingProduct) {
-        // Atualiza a quantidade do produto existente
+
         existingProduct.quantity += this.quantity;
       } else {
-        // Adiciona um novo produto
+
         const newProduct = { ...this.product, quantity: this.quantity };
         products.push(newProduct);
       }
 
-      // Atualiza o Local Storage
+
       localStorage.setItem('cartProducts', JSON.stringify(products));
 
-      // Navega para a página do carrinho
+
       this.router.navigate(['/cart']);
     }
   }
@@ -88,7 +87,7 @@ export class ProductComponent implements OnInit {
     this.router.navigate(['/account']);
   }
 
-  // Método para redirecionar para a página de catálogo
+
   navigateToCatalog(): void {
     this.router.navigate(['/catalog']);
   }

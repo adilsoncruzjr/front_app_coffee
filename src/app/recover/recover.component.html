@@ -1,0 +1,17 @@
+<div class="header">
+    <div class="back-icon"></div>
+    <div class="logo">CaféGourmet</div>
+    <div class="user-icon"></div>
+  </div>
+  <div class="content mat-elevation-z4">
+    <h3>Recupere sua conta</h3>
+    <p>Insira seu e-mail para recuperar sua senha.</p>
+    <form >
+      <mat-form-field appearance="fill" class="email-field">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Recuperar</button>
+    </form>
+  </div>
+  

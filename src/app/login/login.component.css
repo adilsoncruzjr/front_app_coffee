@@ -1,19 +1,16 @@
-/* Estilo para o container do login */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #d0fdd7; /* Cor de fundo mais clara */
+  background-color: #d0fdd7;
 }
 
-/* Estilo para o cartão de login */
 .login-card {
   width: 400px;
   padding: 20px;
 }
 
-/* Estilo para o botão de login */
 .button-container {
   display: flex;
   justify-content: center;
@@ -21,27 +18,38 @@
 }
 
 mat-card-title {
-  margin-bottom: 20px; /* Adiciona 20px de espaço abaixo do cabeçalho */
+  margin-bottom: 20px;
 }
 
-/* Estilo para os campos de formulário */
+
 mat-form-field {
   width: 100%;
 }
 
-/* Estilo para o cartão */
 mat-card {
-  background-color: #ffffff; /* Cor de fundo do card */
+  background-color: #ffffff;
 }
 
-/* Estilo para o título do cartão */
 mat-card-title {
-  color: #64c27b; /* Cor verde para o título */
+  color: #64c27b;
   text-align: center;
 }
 
 .button-container {
   display: flex;
-  justify-content: space-between;  /* Ajuste o alinhamento dos botões */
+  justify-content: space-between;
   margin-top: 20px;
+}
+
+.recover-password {
+  color: #000;
+  cursor: pointer;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.recover-password:hover {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
 }
